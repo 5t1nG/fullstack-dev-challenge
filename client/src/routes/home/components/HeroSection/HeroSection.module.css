@@ -1,0 +1,153 @@
+.heroSection {
+  position: relative;
+  z-index: 2;
+  animation: heroAppear 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.heroSection:hover {
+  transform: translateY(-5px);
+  box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.8);
+}
+
+.title {
+  position: relative;
+  animation: titleAppear 1s ease-out 0.4s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(to right, #ffeb3b, transparent);
+  border-radius: 5px;
+  animation: gradientPulse 4s infinite alternate;
+}
+
+.subtitle {
+  position: relative;
+  animation: titleAppear 1s ease-out 0.6s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ctaButton {
+  position: relative;
+  animation: titleAppear 1s ease-out 0.8s forwards, pulse 2s infinite;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ctaButton:hover {
+  transform: scale(1.05) translateY(-5px) rotate(1deg);
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.5);
+}
+
+.illustration {
+  transition: all 0.5s ease;
+  animation: titleAppear 1s ease-out 1s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.illustration:hover {
+  transform: translateY(-10px) rotate(2deg);
+}
+
+.illustrationElement1 {
+  transition: all 0.3s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+.illustrationElement2 {
+  transition: all 0.3s ease;
+  animation: float 5s ease-in-out 0.5s infinite;
+}
+
+.illustration:hover .illustrationElement1 {
+  transform: rotate(-15deg) translateY(-10px);
+}
+
+.illustration:hover .illustrationElement2 {
+  transform: rotate(18deg) translateY(-10px);
+}
+
+.moneyEmoji {
+  transition: all 0.3s ease;
+  font-size: 5rem;
+  animation: spin 7s linear infinite;
+  animation-play-state: paused;
+}
+
+.illustration:hover .moneyEmoji {
+  transform: translate(-50%, -50%) scale(1.3);
+  animation-play-state: running;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes gradientPulse {
+  0% {
+    background: linear-gradient(to right, #ffeb3b, transparent);
+    width: 80px;
+  }
+  100% {
+    background: linear-gradient(to right, #e91e63, #03a9f4);
+    width: 150px;
+  }
+}
+
+@keyframes titleAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+} 

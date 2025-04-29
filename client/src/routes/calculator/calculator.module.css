@@ -1,0 +1,64 @@
+.calculatorPage {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  background: url('/main_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Main Layout - Default to column (mobile first) */
+.calculatorLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* 24px */
+  align-items: center; /* Center items vertically on mobile */
+  padding: 1rem; /* Add some padding for mobile */
+}
+
+/* Individual panel styles */
+.panelColumn {
+  width: 100%;
+  max-width: 500px; /* Set a max-width for mobile */
+}
+
+/* Desktop and larger screens - Use row layout */
+@media (min-width: 1024px) {
+  .calculatorLayout {
+    flex-direction: row;
+    align-items: flex-start; /* Align items to top */
+    justify-content: center; /* Center columns horizontally */
+    padding: 0; /* Remove mobile padding */
+  }
+
+  .panelColumn {
+    width: auto; /* Reset width */
+    max-width: none; /* Reset max-width */
+  }
+
+  /* Define flex properties for columns on larger screens */
+  .panelColumn:nth-child(1) {
+    flex: 2;
+    max-width: 300px;
+  }
+  .panelColumn:nth-child(2) {
+    flex: 2;
+    max-width: 300px;
+  }
+  .panelColumn:nth-child(3) {
+    flex: 5;
+    max-width: 600px;
+  }
+}
+
+.chartPanel {
+  position: relative;
+  z-index: 1;
+}
+
+.factsPanel {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+} 

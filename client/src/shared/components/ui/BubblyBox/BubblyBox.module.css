@@ -1,0 +1,7 @@
+.bubblyBox {
+  transition: all 0.3s;
+}
+ 
+.bubblyBox:hover {
+  transform: translateY(-5px);
+} 

@@ -1,0 +1,46 @@
+.featuresSection {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8));
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.sectionTitle {
+  position: relative;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sectionTitle:hover {
+  transform: rotate(1deg) scale(1.03);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.8);
+}
+
+.featureGrid {
+  margin-top: 30px;
+  position: relative;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 

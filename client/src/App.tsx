@@ -1,35 +1,38 @@
-import React from 'react'
-import './App.css'
+import { useState } from 'react'
+import './styles/App.css'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { Container } from '@chakra-ui/react'
 import DefaultLayout from './components/layouts/Default'
-import LineChart from './components/LineChart'
 import theme from './theme'
+import HomePage from './routes/home/HomePage'
+import CalculatorPage from './routes/calculator/CalculatorPage'
 
-const defaultTheme = extendTheme(theme)
 
-// Note: This is just for example purposes
-// should be replaced with real data from the backend
-const tempData = {
-    xAxis: ['0', '1', '2', '3', '4', '5'],
-    yAxis: ['100', '150', '180', '210', '240', '350'],
-}
+// Create theme with cartoon UI
+const cartoonTheme = extendTheme({
+  ...theme,
+  shadows: {
+    cartoon: '5px 5px 0px rgba(0, 0, 0, 0.8)',
+    cartoonHover: '8px 8px 0px rgba(0, 0, 0, 0.8)'
+  }
+})
 
 function App() {
+  // Page state
+  const [activePage, setActivePage] = useState<'home' | 'tool'>('home')
+
+  // Navigate between pages
+  const handleNavigate = (page: 'home' | 'tool') => {
+    setActivePage(page)
+  }  
+
     return (
-        <ChakraProvider theme={defaultTheme}>
-            {/* We've just bundled everything into one file here to 
-            get you started!*/}
-            <DefaultLayout>
-                <Container pt={6}>
-                    <LineChart
-                        title="Savings Over time"
-                        xAxisData={tempData.xAxis}
-                        yAxisData={tempData.yAxis}
-                        xLabel="Years"
-                        yLabel="Amount"
-                    />
-                </Container>
+        <ChakraProvider theme={cartoonTheme}>
+            <DefaultLayout activePage={activePage} onNavigate={handleNavigate}>
+                {activePage === 'home' ? (
+                    <HomePage onStartCalculating={() => handleNavigate('tool')} />
+                ) : (
+                    <CalculatorPage />
+                )}
             </DefaultLayout>
         </ChakraProvider>
     )

@@ -1,0 +1,34 @@
+.stepCard {
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.stepCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.8);
+}
+
+.numberCircle {
+  transition: all 0.3s ease;
+}
+
+.stepCard:hover .numberCircle {
+  transform: translateX(-50%) scale(1.2);
+}
+
+.description {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.description::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: #ffeb3b; /* primary.400 */
+  border-radius: 3px;
+} 

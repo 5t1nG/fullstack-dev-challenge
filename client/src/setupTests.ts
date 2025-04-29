@@ -3,3 +3,13 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import { afterEach, beforeEach, vi } from 'vitest';
+
+// Mock for fetch API
+window.fetch = vi.fn();
+
+// Setup any global test utilities here
+beforeEach(() => {
+  // Clear mocks between tests
+  vi.clearAllMocks();
+});

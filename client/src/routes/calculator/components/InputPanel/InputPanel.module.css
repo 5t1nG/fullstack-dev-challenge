@@ -1,0 +1,44 @@
+.inputPanel {
+  position: relative;
+  z-index: 2;
+}
+
+.inputPanel label {
+  transition: all 0.2s;
+}
+
+.inputPanel label:hover {
+  transform: translateX(5px);
+}
+
+/* Input group enhancements */
+.inputGroup {
+  position: relative;
+  filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.2));
+  transition: all 0.2s ease;
+}
+
+.inputGroup:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.25));
+}
+
+/* Enhanced stepper buttons */
+.inputGroup [role="spinbutton"] + div button {
+  margin: 4px 0;
+  min-width: 25px;
+  min-height: 25px;
+}
+
+.inputGroup [role="spinbutton"] + div button:hover {
+  outline: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Safari fix for border alignment */
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    .inputGroup input {
+      margin-left: -1px;
+    }
+  }
+} 

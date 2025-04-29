@@ -1,0 +1,28 @@
+.resultsPanel {
+  position: relative;
+  z-index: 1;
+}
+
+.statBox {
+  transition: all 0.3s ease;
+}
+
+.chartContainer {
+  overflow: hidden;
+}
+
+.insightsContainer {
+  position: relative;
+}
+
+.insightsContainer::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: #ffee58; /* primary.300 */
+  border-radius: 50%;
+  border: 3px solid black;
+} 

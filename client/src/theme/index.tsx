@@ -4,13 +4,88 @@ const theme = {
         white: '#fff',
         black: '#171E27',
         text: '#3C4857',
-        primary: '#3BA9FC',
+        
+        // Vibrant primary colors (bright blue)
+        primary: {
+            50: '#e3f2fd',
+            100: '#bbdefb',
+            200: '#90caf9',
+            300: '#64b5f6',
+            400: '#42a5f5',
+            500: '#2196f3',
+            600: '#1e88e5',
+            700: '#1976d2',
+            800: '#1565c0',
+            900: '#0d47a1',
+        },
+        
+        // Vibrant secondary colors (hot pink)
+        secondary: {
+            50: '#fce4ec',
+            100: '#f8bbd0',
+            200: '#f48fb1',
+            300: '#f06292',
+            400: '#ec407a',
+            500: '#e91e63',
+            600: '#d81b60',
+            700: '#c2185b',
+            800: '#ad1457',
+            900: '#880e4f',
+        },
+        
+        // Vibrant accent colors (bright yellow)
+        accent: {
+            50: '#fffde7',
+            100: '#fff9c4',
+            200: '#fff59d',
+            300: '#fff176',
+            400: '#ffee58',
+            500: '#ffeb3b',
+            600: '#fdd835',
+            700: '#fbc02d',
+            800: '#f9a825',
+            900: '#f57f17',
+        },
+        
+        // Success colors (bright green)
+        success: {
+            50: '#e8f5e9',
+            100: '#c8e6c9',
+            200: '#a5d6a7',
+            300: '#81c784',
+            400: '#66bb6a',
+            500: '#4caf50',
+            600: '#43a047',
+            700: '#388e3c',
+            800: '#2e7d32',
+            900: '#1b5e20',
+        },
+        
+        // Fun additional colors
+        purple: {
+            300: '#ba68c8',
+            400: '#ab47bc',
+            500: '#9c27b0',
+        },
+        
+        orange: {
+            300: '#ffb74d',
+            400: '#ffa726',
+            500: '#ff9800',
+        },
+        
+        teal: {
+            300: '#4db6ac',
+            400: '#26a69a',
+            500: '#009688',
+        },
+        
+        // Original theme colors
         primaryInverted: '#fff',
         danger: '#FD2F60',
         dangerInverted: '#fff',
         warning: '#ffbb2d',
         warningInverted: '#171e27',
-        success: '#0FD165',
         successInverted: '#fff',
         grey1: '#F9FAFC',
         grey2: '#F0F2F7',
