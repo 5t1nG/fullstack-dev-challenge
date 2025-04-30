@@ -5,7 +5,7 @@ order to form the submission for the challenge. Once cloned, it will give you a 
 
 ## Run Instructions
 
-To run the app, `cd` into the project root directory and run `yarn install` & `yarn start`
+To run the app, `cd` into the project root directory and run `yarn install`, then `cd client` and run `yarn install`, then `cd ..` and run `yarn start`
 (install Yarn [here](https://yarnpkg.com/en/docs/install)).
 
 Depending on your environment, you might need to install concurrently / Typescript globally.
