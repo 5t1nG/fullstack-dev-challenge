@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, VStack, Heading, SimpleGrid, Text, Button, useToken } from '@chakra-ui/react';
+import { Box, VStack, Heading, SimpleGrid } from '@chakra-ui/react';
 import BubblyButton from '../../../../shared/components/ui/BubblyButton/BubblyButton';
 import StepCard from '../StepCard/StepCard';
 import styles from './HowItWorksSection.module.css';
@@ -61,7 +61,7 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onStartCalculatin
           textShadow="2px 2px 0 black"
           className={styles.sectionTitle}
         >
-          How It Works 🤔
+          How It Works
         </Heading>
         
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} className={styles.stepsGrid}>
@@ -100,4 +100,4 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onStartCalculatin
   );
 };
 
-export default HowItWorksSection; 
+export default HowItWorksSection;

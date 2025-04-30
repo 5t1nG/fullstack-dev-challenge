@@ -15,12 +15,15 @@
   gap: 1.5rem; /* 24px */
   align-items: center; /* Center items vertically on mobile */
   padding: 1rem; /* Add some padding for mobile */
+  width: 100%;
+  margin: 0 auto; /* Center the layout container */
 }
 
 /* Individual panel styles */
 .panelColumn {
   width: 100%;
   max-width: 500px; /* Set a max-width for mobile */
+  margin: 0 auto; /* Center each panel */
 }
 
 /* Desktop and larger screens - Use row layout */
@@ -35,6 +38,7 @@
   .panelColumn {
     width: auto; /* Reset width */
     max-width: none; /* Reset max-width */
+    margin: 0; /* Reset margin */
   }
 
   /* Define flex properties for columns on larger screens */
@@ -52,9 +56,51 @@
   }
 }
 
+/* New breakpoint at 1200px for third panel layout */
+@media (max-width: 1200px) and (min-width: 1024px) {
+  .calculatorLayout {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .panelColumn:nth-child(1),
+  .panelColumn:nth-child(2) {
+    flex-basis: calc(50% - 1rem);
+  }
+  
+  .panelColumn:nth-child(3) {
+    flex-basis: 100%;
+    max-width: calc(600px + 4px); /* Match width of first two columns combined plus gap */
+    margin-top: 1.5rem;
+  }
+}
+
+/* For very small screens, ensure panels are well-centered and have appropriate width */
+@media (max-width: 600px) {
+  .calculatorLayout {
+    padding: 0.5rem;
+  }
+  
+  .panelColumn {
+    max-width: 95%; /* Almost full width on very small screens */
+  }
+
+  .chartPanel {
+    height: 550px !important; /* Ensure good height on mobile */
+  }
+}
+
 .chartPanel {
   position: relative;
   z-index: 1;
+  height: 100% !important;
+  min-height: 450px;
+}
+
+.chartContainer {
+  height: 100%;
+  min-height: 550px;
+  width: 100%;
 }
 
 .factsPanel {

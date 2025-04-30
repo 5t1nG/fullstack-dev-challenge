@@ -5,11 +5,10 @@ import styles from './FeatureCard.module.css';
 interface FeatureCardProps {
   title: string;
   description: string;
-  emoji: string;
   color?: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, emoji, color = "primary.300" }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, color = "primary.300" }) => {
   // Get the token values for black and white
   const [black, white] = useToken('colors', ['black', 'white']);
   
@@ -48,22 +47,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, emoji, co
         zIndex: -1
       }}
     >
-      <Text
-        position="absolute"
-        top="-12px"
-        right="20px"
-        width="40px"
-        height="40px"
-        borderRadius="50%"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        fontSize="24px"
-        zIndex="1"
-        className={styles.emoji}
-      >
-        {emoji}
-      </Text>
       <Box
         position="absolute"
         top="-12px"

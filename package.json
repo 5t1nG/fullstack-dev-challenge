@@ -16,18 +16,22 @@
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "ts-node server.ts",
-    "types": "tsc",
+    "server": "ts-node src/server.ts",
+    "dev": "nodemon --watch src --ext ts,json --exec ts-node src/server.ts",
+    "build": "tsc",
+    "types": "tsc --noEmit",
     "client": "node scripts/start-client.js",
-    "install": "cd client && yarn install && cd .."
+    "install-client": "cd client && npm install",
+    "start:prod": "node dist/server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
-    "@types/node": "^20.11.19",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.11.29",
     "concurrently": "^8.2.2",
-    "mocha": "^10.3.0",
+    "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   }
 }

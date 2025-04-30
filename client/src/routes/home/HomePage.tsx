@@ -10,24 +10,8 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = ({ onStartCalculating }) => {
-  // Random bubble animations for background
-  const randomBubbles = [...Array(8)].map((_, i) => (
-    <div
-      key={i}
-      className={styles.bubble}
-      style={{
-        width: `${Math.random() * 40 + 20}px`,
-        height: `${Math.random() * 40 + 20}px`,
-        left: `${Math.random() * 90}%`,
-        top: `${Math.random() * 90}%`,
-        animationDuration: `${Math.random() * 5 + 3}s`
-      }}
-    />
-  ));
-
   return (
     <Box py={10} px={4} className={styles.homePage}>
-      {randomBubbles}
       <VStack spacing={12} align="stretch" maxW="container.xl" mx="auto">
         <HeroSection onStartCalculating={onStartCalculating} />
         <FeaturesSection />

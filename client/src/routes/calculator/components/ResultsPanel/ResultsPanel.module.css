@@ -9,6 +9,9 @@
 
 .chartContainer {
   overflow: hidden;
+  min-height: 500px;
+  height: 100%;
+  width: 100%;
 }
 
 .insightsContainer {

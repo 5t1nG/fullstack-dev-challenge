@@ -3,13 +3,24 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
-import { afterEach, beforeEach, vi } from 'vitest';
+import { vi } from 'vitest';
 
 // Mock for fetch API
 window.fetch = vi.fn();
 
-// Setup any global test utilities here
-beforeEach(() => {
-  // Clear mocks between tests
-  vi.clearAllMocks();
+// Mock window.matchMedia for Chakra UI components
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: vi.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  })),
 });
+
+// Setup any global test utilities here

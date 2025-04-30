@@ -5,37 +5,31 @@ import styles from './FeaturesSection.module.css';
 
 const features = [
   {
-    emoji: '🧮',
     title: 'Easy Calculations',
     description: 'Simple sliders and inputs make it fun to experiment with different savings scenarios.',
     color: 'primary.300'
   },
   {
-    emoji: '📊',
     title: 'Visual Charts',
     description: 'See your money growth in colorful graphs that make financial planning exciting!',
     color: 'secondary.300'
   },
   {
-    emoji: '💰',
     title: 'Compound Magic',
     description: 'Watch how the miracle of compound interest turns small savings into big treasures.',
     color: 'accent.300'
   },
   {
-    emoji: '⏱️',
     title: 'Real-time Updates',
     description: 'Instantly see how changing numbers affects your financial future.',
     color: 'teal.300'
   },
   {
-    emoji: '📱',
     title: 'Mobile Friendly',
     description: 'Calculate on any device - your finance buddy is always with you!',
     color: 'purple.300'
   },
   {
-    emoji: '🎮',
     title: 'Fun Interface',
     description: "Finance doesn't have to be boring - our playful design makes money fun!",
     color: 'orange.300'
@@ -107,7 +101,6 @@ const FeaturesSection: React.FC = () => {
         {features.map((feature, index) => (
           <FeatureCard
             key={index}
-            emoji={feature.emoji}
             title={feature.title}
             description={feature.description}
             color={feature.color}

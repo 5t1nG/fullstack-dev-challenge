@@ -1,13 +1,28 @@
-import React from 'react'
-import { Box, Flex, Text, Button } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { 
+  Box, 
+  Flex, 
+  Text, 
+  Button, 
+  IconButton, 
+  Drawer,
+  DrawerBody,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  VStack,
+  useBreakpointValue
+} from '@chakra-ui/react'
 
 interface NavLinkProps {
   isActive?: boolean;
   children: React.ReactNode;
   onClick: () => void;
+  isMobile?: boolean;
 }
 
-const NavLink = ({ isActive = false, children, onClick }: NavLinkProps) => {
+const NavLink = ({ isActive = false, children, onClick, isMobile = false }: NavLinkProps) => {
   return (
     <Button
       onClick={onClick}
@@ -33,6 +48,8 @@ const NavLink = ({ isActive = false, children, onClick }: NavLinkProps) => {
         boxShadow: "2px 2px 0px rgba(0, 0, 0, 0.8)",
       }}
       mx={2}
+      width={isMobile ? "100%" : "auto"}
+      my={isMobile ? 2 : 0}
     >
       {children}
     </Button>
@@ -45,6 +62,9 @@ interface NavHeaderProps {
 }
 
 const NavHeader = ({ activePage = 'tool', onNavigate }: NavHeaderProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <Box
       py={4}
@@ -84,23 +104,89 @@ const NavHeader = ({ activePage = 'tool', onNavigate }: NavHeaderProps) => {
           </Text>
         </Flex>
         
-        <Flex>
-          <NavLink 
-            isActive={activePage === 'home'} 
-            onClick={() => onNavigate('home')}
-          >
-            Home
-          </NavLink>
-          <NavLink 
-            isActive={activePage === 'tool'} 
-            onClick={() => onNavigate('tool')}
-          >
-            Calculator
-          </NavLink>
-        </Flex>
+        {isMobile ? (
+          <>
+            <IconButton
+              aria-label="Open menu"
+              icon={<HamburgerIcon />}
+              variant="outline"
+              colorScheme="black"
+              border="3px solid black"
+              bg="white"
+              _hover={{ bg: "primary.100" }}
+              onClick={onOpen}
+            />
+            <Drawer
+              isOpen={isOpen}
+              placement="right"
+              onClose={onClose}
+            >
+              <DrawerOverlay />
+              <DrawerContent bg="accent.100" border="3px solid black">
+                <DrawerCloseButton 
+                  color="black" 
+                  size="lg" 
+                  bg="white"
+                  border="2px solid black"
+                  borderRadius="full"
+                  _hover={{ bg: "primary.100" }}
+                  mt={3}
+                  mr={3}
+                />
+                <DrawerBody pt={14}>
+                  <VStack spacing={4} align="stretch">
+                    <NavLink 
+                      isActive={activePage === 'home'} 
+                      onClick={() => {
+                        onNavigate('home');
+                        onClose();
+                      }}
+                      isMobile={true}
+                    >
+                      Home
+                    </NavLink>
+                    <NavLink 
+                      isActive={activePage === 'tool'} 
+                      onClick={() => {
+                        onNavigate('tool');
+                        onClose();
+                      }}
+                      isMobile={true}
+                    >
+                      Calculator
+                    </NavLink>
+                  </VStack>
+                </DrawerBody>
+              </DrawerContent>
+            </Drawer>
+          </>
+        ) : (
+          <Flex>
+            <NavLink 
+              isActive={activePage === 'home'} 
+              onClick={() => onNavigate('home')}
+            >
+              Home
+            </NavLink>
+            <NavLink 
+              isActive={activePage === 'tool'} 
+              onClick={() => onNavigate('tool')}
+            >
+              Calculator
+            </NavLink>
+          </Flex>
+        )}
       </Flex>
     </Box>
   )
 }
+
+const HamburgerIcon = () => (
+  <Box>
+    <Box as="span" display="block" width="24px" height="3px" bg="black" mb="5px" borderRadius="3px" />
+    <Box as="span" display="block" width="24px" height="3px" bg="black" mb="5px" borderRadius="3px" />
+    <Box as="span" display="block" width="24px" height="3px" bg="black" borderRadius="3px" />
+  </Box>
+)
 
 export default NavHeader

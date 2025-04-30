@@ -27,6 +27,7 @@ const LineChart = ({ xAxisData, yAxisData, title, xLabel, yLabel, color }: Props
     
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false,
@@ -159,6 +160,7 @@ const LineChart = ({ xAxisData, yAxisData, title, xLabel, yLabel, color }: Props
                 ],
             }}
             options={options}
+            style={{ width: '100%', height: '100%', position: 'relative' }}
         />
     )
 }

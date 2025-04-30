@@ -24,12 +24,24 @@
       ],
       "typeRoots": [
         "node_modules/@types"
-      ]
+      ],
+      "paths": {
+        "@api/*": ["src/api/*"],
+        "@config/*": ["src/config/*"],
+        "@interfaces/*": ["src/api/interfaces/*"],
+        "@services/*": ["src/api/services/*"],
+        "@controllers/*": ["src/api/controllers/*"],
+        "@routes/*": ["src/api/routes/*"],
+        "@middleware/*": ["src/api/middleware/*"],
+        "@utils/*": ["src/api/utils/*"]
+      }
     },
     "include": [
-      "./**/*.ts",
+      "src/**/*.ts"
     ],
     "exclude": [
-      "./client"
+      "./client",
+      "node_modules",
+      "dist"
     ]
    }

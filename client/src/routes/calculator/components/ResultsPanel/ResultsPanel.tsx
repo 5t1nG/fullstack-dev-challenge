@@ -99,7 +99,7 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
           </BubblyButton>
         </VStack>
       ) : results ? (
-        <VStack spacing={6} align="stretch" position="relative" zIndex={1}>
+        <VStack spacing={6} align="stretch" position="relative" zIndex={1} height="100%">
           <Heading 
             as="h2" 
             size="lg" 
@@ -195,7 +195,8 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
           </SimpleGrid>
 
           <Box 
-            h={{ base: "300px", md: "400px" }} 
+            h="full"
+            minH="500px"
             bg="white"
             p={4}
             borderRadius="20px"
@@ -203,6 +204,8 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({
             boxShadow="cartoon"
             transform="rotate(1deg)"
             className={styles.chartContainer}
+            flex="1"
+            position="relative"
           >
             <LineChart
               title="Money Mountain 📈"

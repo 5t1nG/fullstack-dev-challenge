@@ -285,7 +285,7 @@ const CalculatorPage: React.FC = () => {
           // Get numeric values for API call
           const numericData = getNumericFormData();
           
-          const response = await fetch(`${backendUrl}/api/get-calculation`, {
+          const response = await fetch(`${backendUrl}/api/calculations`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -381,7 +381,7 @@ const CalculatorPage: React.FC = () => {
       // Convert string inputs to numbers for API call
       const numericData = getNumericFormData();
       
-      const response = await fetch(`${backendUrl}/api/get-calculation`, {
+      const response = await fetch(`${backendUrl}/api/calculations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -620,14 +620,17 @@ const CalculatorPage: React.FC = () => {
                   </Heading>
                   
                   <Box 
-                    h={{ base: "250px", md: "300px" }} 
                     w="full"
+                    h="full"
+                    minH="500px"
                     bg="white"
                     p={4}
                     borderRadius="20px"
                     border="3px solid black"
                     boxShadow="cartoon"
                     className={styles.chartContainer}
+                    flex="1"
+                    position="relative"
                   >
                     <LineChart
                       title="Money Mountain"
